@@ -1,0 +1,1 @@
+angular.module("templates",[]).run(["$templateCache",function(n){n.put("main/main.html","<div>\n\n  this is a test\n</div>\n")}]);

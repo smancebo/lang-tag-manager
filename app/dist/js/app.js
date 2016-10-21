@@ -1,0 +1,1 @@
+function configFn(n){n.when("/",{controller:"mainController",templateUrl:"main/main.html"})}angular.module("templates",[]).run(["$templateCache",function(n){n.put("main/main.html","<div>\n\n this is a test\n</div>\n")}]),angular.module("lang-tag-manager",["ngRoute","templates"]).config(configFn),configFn.$inject=["$routeProvider"];
