@@ -1,0 +1,18 @@
+
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Idiomas</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <div layout="column">
+      <md-list>
+        <md-list-item class="md-2-line" ng-repeat="idioma in ctrl.idiomas">
+          <p>{{idioma.descripcion}}</p>
+          <md-button class="md-icon-button"><md-icon class="material-icons">pageview</md-icon></md-button>
+        </md-list-item>
+      </md-list>
+    </div>
+  </md-card-content>
+</md-card>

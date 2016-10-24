@@ -1,0 +1,5 @@
+md-sidenav.md-closed-add,
+md-sidenav.md-closed-remove {
+    -webkit-transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
+    transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
+}
