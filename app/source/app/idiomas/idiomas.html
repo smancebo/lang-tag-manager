@@ -1,18 +1,37 @@
 
-<md-card>
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">Idiomas</span>
-    </md-card-title-text>
-  </md-card-title>
-  <md-card-content>
-    <div layout="column">
-      <md-list>
-        <md-list-item class="md-2-line" ng-repeat="idioma in ctrl.idiomas">
-          <p>{{idioma.descripcion}}</p>
-          <md-button class="md-icon-button"><md-icon class="material-icons">pageview</md-icon></md-button>
-        </md-list-item>
-      </md-list>
-    </div>
-  </md-card-content>
-</md-card>
+
+	<md-card>
+		<md-card-title>
+			<md-card-title-text>
+				<span class="md-headline">Idiomas</span>
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content>
+			<div layout="column">
+
+				<md-list>
+					<md-list-item class="md-2-line" ng-repeat="idioma in idiomas" ng-click="null">
+						<md-icon class="material-icons">translate</md-icon>
+						<p>{{idioma.descripcion}}</p>
+						<section layout="row" layout-wrap>
+							<md-button class="md-icon-button">
+								<md-tooltip md-direction="botton" md-delay="200">Ver etiquetas</md-tooltip>
+								<md-icon class="material-icons">pageview</md-icon>
+							</md-button>
+							<md-button class="md-icon-button">
+								<md-tooltip md-direction="botton" md-delay="200">Eliminar</md-tooltip>
+								<md-icon class="material-icons">delete_forever</md-icon>
+							</md-button>
+						</section>
+						<md-divider></md-divider>
+					</md-list-item>
+				</md-list>
+
+			</div>
+		</md-card-content>
+	</md-card>
+
+
+<md-button class="md-fab md-fab-bottom-right" style="position:fixed" ng-click="ctrl.openAddIdioma($event)">
+  <md-icon class="material-icons">add</md-icon>
+</md-button>

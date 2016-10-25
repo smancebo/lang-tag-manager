@@ -18,9 +18,10 @@ var sass = require('gulp-sass');
 
 
 var app = [
-  'source/app/app.js',
+  'source/app/**/*.routes.js',
   'source/app/**/*.service.js',
-  'source/app/**/*.controller.js'
+  'source/app/**/*.controller.js',
+  'source/app/app.js'
 ];
 
 var vendors = [
@@ -53,7 +54,7 @@ var templateOptions = {
   module : 'templates'
 };
 
-gulp.task('default',['build-vendors','build-css-vendors', 'build-app','build-sass','watchIndex',
+gulp.task('default',['build-vendors','build-css-vendors','build-templates', 'build-app','build-sass','watchIndex',
                      'watchApp','watchCss','watchTemplates','watchSass'],
 function(){
   console.log('gulp up and running');

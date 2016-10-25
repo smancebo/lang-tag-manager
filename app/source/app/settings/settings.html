@@ -1,0 +1,35 @@
+<md-card>
+	<md-card-title>
+		<md-card-title-text>
+			<span class="md-headline">Configuración</span>
+		</md-card-title-text>
+	</md-card-title>
+	<md-card-content>
+		<div layout="column">
+			<form layout="column">
+				<div flex layout="row">
+					<md-input-container flex>
+						<label>Local Lang</label>
+						<input type="text" ng-disabled="true" ng-model="ctrl.form.localLang">
+					</md-input-container>
+          <div>
+            <md-button class="md-icon-button md-primary" ng-click="ctrl.chooseLocalLang()">
+              <md-icon class="material-icons">search</md-icon>
+            </md-button>
+          </div>
+				</div>
+        <div flex layout="row">
+          <md-input-container flex>
+            <label>Remote Lang</label>
+            <input type="text" ng-disabled='true' ng-model="ctrl.form.remoteLang">
+          </md-input-container>
+          <div>
+            <md-button class="md-icon-button md-primary" ng-click="ctrl.chooseRemoteLang()">
+              <md-icon class="material-icons">search</md-icon>
+            </md-button>
+          </div>
+        </div>
+			</form>
+		</div>
+	</md-card-content>
+</md-card>

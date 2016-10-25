@@ -1,22 +1,28 @@
-angular.module('lang-tag-manager', ['ngRoute', 'templates', 'ngMaterial', 'ngAnimate'])
-	.config(configFn)
+(function(angular){
+
+
+var deps = [
+	'templates',
+	'app.settings',
+	'app.idiomas',
+	
+	'ngMaterial',
+	'ngAnimate'
+];
+
+angular.module('lang-tag-manager', deps)
+
+	.run(runFn)
 	.controller('mainController', mainController);
 
-configFn.$inject = ['$routeProvider'];
-
-function configFn($routeProvider) {
-	$routeProvider
-		.when('/', {
-			controller: 'mainController',
-			templateUrl: 'main/main.html'
-		})
-    .when('/idiomas',{
-      controller:'idiomaController',
-      controllerAs: 'ctrl',
-      templateUrl:'idiomas/idiomas.html'
-    })
-    ;
+runFn.$inject = ['$rootScope'];
+function runFn($rootScope){
+	$rootScope.$on('$routeChangeStart', function($event, next, prev){
+		$rootScope.currentTitle = next.$$route.title;
+	});
 }
+
+
 
 mainController.$inject = ['$scope', '$mdSidenav','$location'];
 
@@ -26,9 +32,14 @@ function mainController($scope, $mdSidenav, $location) {
 		$mdSidenav('menuLeft').toggle();
 	};
 
+	function closeMenu(){
+		$mdSidenav('menuLeft').close();
+	}
+
   $scope.open = function(url){
-    alert(url);
+
     $location.path(url);
+		closeMenu();
   };
 	$scope.menu = {
 		main: [{
@@ -43,8 +54,9 @@ function mainController($scope, $mdSidenav, $location) {
 		settings: [{
 			icon: 'settings',
 			menuText: 'Configuración',
-      url:'/configuracion'
+      url:'/settings'
 		}]
 
 	};
 }
+})(window.angular);

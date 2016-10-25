@@ -1,6 +1,8 @@
 'use strict';
 
 const electron = require('electron');
+const dialog = require('electron').dialog;
+const ipc = require('electron').ipcMain;
 
 const app = electron.app;
 
@@ -10,11 +12,20 @@ require('electron-debug')();
 // prevent window being garbage collected
 let mainWindow;
 
+
 function onClosed() {
 	// dereference the window
 	// for multiple windows store them in an array
 	mainWindow = null;
 }
+
+ipc.on('open-file-dialog', function(event){
+	dialog.showOpenDialog({
+		properties: ['openDirectory']
+	}, function(files){
+		if(files) event.sender.send('selected-directory', files);
+	});
+});
 
 function createMainWindow() {
 	const win = new electron.BrowserWindow({
@@ -24,7 +35,7 @@ function createMainWindow() {
 
 	win.loadURL(`file://${__dirname}/dist/index.html`);
 	win.on('closed', onClosed);
-
+	win.webContents.session.clearCache();
 	return win;
 }
 

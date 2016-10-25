@@ -26,7 +26,7 @@
 
 		<md-list flex>
 			<md-subheader class="md-no-sticky">Principal</md-subheader>
-			<md-list-item class="md-1-line" ng-repeat="item in menu.main" ng-click="null">
+			<md-list-item class="md-1-line" ng-repeat="item in menu.main" ng-click="open(item.url)">
 					<div class="inset">
 						<md-icon flex="10" class="material-icons">{{item.icon}}</md-icon>
 						<span flex>{{item.menuText}}</span>
@@ -54,14 +54,14 @@
 						<md-icon class="material-icons">menu</md-icon>
 					</md-button>
 					<span>
-						<h2>Tag Manager</h2>
+						<h2>{{currentTitle}}</h2>
 					</span>
 				</div>
 			</md-toolbar>
 
 
-		<md-content flex layout-padding>
-			<ng-view></ng-view>
+		<md-content flex >
+			<div ng-view class="slide"></div>
 		</md-content>
 
 	</div>
