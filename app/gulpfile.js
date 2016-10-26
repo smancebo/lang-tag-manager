@@ -76,6 +76,7 @@ gulp.task('build-vendors', function(){
 
 gulp.task('build-templates', function(){
   return gulp.src(templates)
+    .pipe(htmlmin())
     .pipe(templateCache(templateOptions))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'));

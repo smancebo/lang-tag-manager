@@ -3,21 +3,21 @@
 	angular.module('app.idiomas')
 		.controller('idiomaController', idiomaController);
 
-	idiomaController.$inject = ['$scope', '$mdDialog','$timeout'];
+	idiomaController.$inject = ['$scope', '$mdDialog','$timeout','idiomasService'];
 
-	function idiomaController($scope, $mdDialog,$timeout) {
+	function idiomaController($scope, $mdDialog,$timeout,idiomasService) {
 		var self = this;
 		self.openAddIdioma = openAddIdioma;
+		self.getInstaledLanguages = getInstaledLanguages;
+
+		self.getInstaledLanguages();
 
 
-
-		$scope.idiomas = [{
-			id: 'es',
-			descripcion: 'Español'
-		}, {
-			id: 'en',
-			descripcion: 'English'
-		}];
+		function getInstaledLanguages(){
+			idiomasService.getInstaledLanguages().then(function(lang){
+				$scope.idiomas = [].concat(lang);
+			});
+		}
 
 		function openAddIdioma(ev) {
 			self.idioma = {};

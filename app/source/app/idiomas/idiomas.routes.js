@@ -1,6 +1,4 @@
 
-
-
 (function(angular){
 
   angular.module('app.idiomas',['ngRoute'])

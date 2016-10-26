@@ -3,9 +3,9 @@
 
 var deps = [
 	'templates',
+	'app.config',
 	'app.settings',
 	'app.idiomas',
-	
 	'ngMaterial',
 	'ngAnimate'
 ];
