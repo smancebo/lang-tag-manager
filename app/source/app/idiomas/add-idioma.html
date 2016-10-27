@@ -1,4 +1,4 @@
-<md-dialog aria-label="Agregar Idioma">
+<md-dialog aria-label="Agregar Idioma" flex-sm="80"  flex-gt-sm="40">
   <md-toolbar>
     <div class="md-toolbar-tools">
        <h2>Agregar Idioma</h2>
@@ -11,16 +11,20 @@
   <md-dialog-content>
     <div layout="column" layout-padding>
       <form layout="column" name="frmIdioma">
-        <md-input-container flex>
+        {{ctrl.idioma.$error | json}}
+        <md-input-container flex md-is-error="ctrl.idioma.$error.exists">
           <label>ID</label>
-          <input required type="text" ng-model="ctrl.idioma.id" />
+          <input required type="text" ng-model="ctrl.idioma.id" ng-change="ctrl.idioma.$error.exists = false" />
+          <div ng-messages="ctrl.idioma.$error" role="alerts">
+            <div ng-messages="exists">Este Idioma ya Existe</div>
+          </div>
         </md-input-container>
         <md-input-container>
           <label>Descripción</label>
-          <input required type="text" ng-model="ctrl.idioma.descripcion" />
+          <input required type="text" ng-model="ctrl.idioma.description"  />
         </md-input-container>
         <md-button class="md-primary" ng-click="ctrl.addIdioma(ctrl)"
-          ng-disabled="frmIdioma.$invalid">
+          ng-disabled="frmIdioma.$invalid || ctrl.idioma.$error.exists">
           Agregar
         </md-button>
       </form>

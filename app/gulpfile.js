@@ -29,6 +29,7 @@ var vendors = [
   '../bower_components/angular-route/angular-route.min.js',
   '../bower_components/angular-animate/angular-animate.min.js',
   '../bower_components/angular-aria/angular-aria.min.js',
+  '../bower_components/angular-messages/angular-messages.min.js',
   '../bower_components/angular-material/angular-material.min.js',
   '../bower_components/angular-ui-router/release/angular-ui-router.min.js'
 
@@ -54,7 +55,8 @@ var templateOptions = {
   module : 'templates'
 };
 
-gulp.task('default',['build-vendors','build-css-vendors','build-templates', 'build-app','build-sass','watchIndex',
+gulp.task('default',['build-vendors','build-css-vendors','build-templates',
+                     'build-app','build-sass','watchIndex',
                      'watchApp','watchCss','watchTemplates','watchSass'],
 function(){
   console.log('gulp up and running');

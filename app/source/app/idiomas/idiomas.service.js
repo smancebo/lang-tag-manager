@@ -41,7 +41,6 @@
 
     function langExists(lang, id){
 
-
       if(lang instanceof Array){
         var element = lang.filter(function(e){
           return e.id == id;

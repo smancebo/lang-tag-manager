@@ -40,8 +40,22 @@
 
 			function addIdioma(ctrl) {
 				$timeout(function() {
-					$scope.idiomas.push(self.idioma);
-					closeAddDialog();
+					console.log(self);
+					var lang = {id: self.idioma.id.toLowerCase(),
+						description: self.idioma.description.toUpperCase()
+					};
+
+					idiomasService.saveLanguage(lang).then(success, error);
+
+					function success(result){
+						self.getInstaledLanguages();
+						closeAddDialog();
+					}
+					function error(result){
+						self.idioma.error = true;
+					}
+
+
 				});
 			}
 
