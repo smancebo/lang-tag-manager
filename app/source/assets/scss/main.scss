@@ -67,12 +67,14 @@ md-sidenav.md-closed-remove {
     transform: scale(1);
 }
 .pop.ng-leave-active {}
-.content-placeholder
+
+.err_message
 {
-
-
-
-
-
-
+      color: #fff;
+      border-color: #dd2c00;
+      background-color: #D9534F;
+      display: inline-block;
+      margin-top: 5px;
+      padding: 5px;
+      border-radius: 5px;
 }

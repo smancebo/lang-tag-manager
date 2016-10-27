@@ -6,6 +6,7 @@ var deps = [
 	'app.config',
 	'app.settings',
 	'app.idiomas',
+	'app.etiquetas',
 	'ngMessages',
 	'ngMaterial',
 	'ngAnimate'

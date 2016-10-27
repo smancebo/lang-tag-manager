@@ -11,20 +11,18 @@
   <md-dialog-content>
     <div layout="column" layout-padding>
       <form layout="column" name="frmIdioma">
-        {{ctrl.idioma.$error | json}}
-        <md-input-container flex md-is-error="ctrl.idioma.$error.exists">
+
+        <md-input-container flex md-is-error="ctrl.idioma.error">
           <label>ID</label>
-          <input required type="text" ng-model="ctrl.idioma.id" ng-change="ctrl.idioma.$error.exists = false" />
-          <div ng-messages="ctrl.idioma.$error" role="alerts">
-            <div ng-messages="exists">Este Idioma ya Existe</div>
-          </div>
+          <input required type="text" name="txtId" ng-model="ctrl.idioma.id" ng-change="ctrl.idioma.error = false" />
+          <div class="err_message" ng-show="ctrl.idioma.error">Este Idioma ya Existe</div>
         </md-input-container>
         <md-input-container>
           <label>Descripción</label>
           <input required type="text" ng-model="ctrl.idioma.description"  />
         </md-input-container>
         <md-button class="md-primary" ng-click="ctrl.addIdioma(ctrl)"
-          ng-disabled="frmIdioma.$invalid || ctrl.idioma.$error.exists">
+          ng-disabled="frmIdioma.$invalid || ctrl.idioma.error">
           Agregar
         </md-button>
       </form>

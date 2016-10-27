@@ -1,1 +1,33 @@
-<h2>tag view</h2>
+
+<div layout="row" layout-fill>
+
+
+
+<md-card flex='40'>
+  <md-card-title>
+    <md-card-title-text>
+      Etiquetas
+    </md-card-title-text>
+  </md-card-title>
+
+  <md-card-content>
+    <md-list>
+      <md-list-item class="md-2-line" ng-repeat="tag in ctrl.tags">
+        {{tag}}
+      </md-list-item>
+      <md-divider></md-divider>
+    </md-list>
+
+  </md-card-content>
+</md-card>
+
+<md-card flex>
+  <md-card-title>
+    <md-card-title-text>
+      Etiquetas
+    </md-card-title-text>
+  </md-card-title>
+
+</md-card>
+
+</div>
