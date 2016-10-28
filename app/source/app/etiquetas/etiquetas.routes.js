@@ -9,12 +9,14 @@
     .when('/etiquetas',{
       controller:'etiquetasController',
       controllerAs:'ctrl',
-      templateUrl:'etiquetas/choose_idioma.html'
+      templateUrl:'etiquetas/choose_idioma.html',
+      title:'Etiquetas'
     })
     .when('/etiquetas/:lang',{
       controller:'etiquetasController',
       controllerAs:'ctrl',
-      templateUrl:'etiquetas/etiquetas.html'
+      templateUrl:'etiquetas/etiquetas.html',
+      title:'Etiquetas'
     });
   }
 

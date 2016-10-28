@@ -1,33 +1,84 @@
+<style media="screen">
+	.tabHeight {
+    height: 550px
+	}
+</style>
 
-<div layout="row" layout-fill>
+
+<div layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+
+    <md-input-container md-theme="input" flex>
+      <md-icon class="material-icons">search</md-icon>
+      <label>&nbsp;</label>
+      <input ng-model="search.who" placeholder="enter search" style="color:white">
+    </md-input-container>
+
+    </div>
+  </md-toolbar>
+</div>
+<div layout="row">
+
+	<div flex='40'>
+		<md-card>
+			<md-card-content>
+				<md-tabs class="tabHeight" md-border-bottom>
+					<md-tab label="Etiquetas ({{ctrl.tags.length}} of {{ctrl.totalTags}})">
+							<md-list>
+
+								<md-list-item class="md-2-line" ng-repeat="tag in ctrl.tags">
+                  <div class="md-list-item-text" layout='column'>
+                    <h4>{{tag.key}}</h4>
+                    <p>{{tag.value}}</p>
+                  </div>
+									<md-divider></md-divider>
+								</md-list-item>
+							</md-list>
+
+					</md-tab>
+				</md-tabs>
+
+			</md-card-content>
+		</md-card>
+	</div>
+
+  <div flex="60" >
+    <md-card >
+      <md-card-title>
+        <md-card-title-text>
+          <span>Nueva Etiqueta</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div>
+          <form name="langForm" layout="column">
+
+            <md-input-container>
+              <label>Key</label>
+              <input id='txtKey' type="text" ng-model="ctrl.form.tag.key" required>
+            </md-input-container>
+            <md-input-container>
+              <label>Value</label>
+              <input type="text" ng-model="ctrl.form.tag.value" required>
+            </md-input-container>
+
+            <md-button class="md-primary" ng-disabled="langForm.$invalid"
+              ng-click="ctrl.add(ctrl.form.tag)">
+              Agregar
+            </md-button>
+          </form>
+
+        </div>
+      </md-card-content>
+    </md-card>
 
 
 
-<md-card flex='40'>
-  <md-card-title>
-    <md-card-title-text>
-      Etiquetas
-    </md-card-title-text>
-  </md-card-title>
 
-  <md-card-content>
-    <md-list>
-      <md-list-item class="md-2-line" ng-repeat="tag in ctrl.tags">
-        {{tag}}
-      </md-list-item>
-      <md-divider></md-divider>
-    </md-list>
 
-  </md-card-content>
-</md-card>
+  </div>
 
-<md-card flex>
-  <md-card-title>
-    <md-card-title-text>
-      Etiquetas
-    </md-card-title-text>
-  </md-card-title>
 
-</md-card>
 
 </div>
